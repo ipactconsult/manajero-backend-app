@@ -33,21 +33,13 @@ import org.springframework.web.client.RestTemplate;
 public class AuthServiceImpl implements IAuthService {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
-
-        final
-        JavaMailSender javaMailSender;
-    final RestTemplate restTemplate;
-
-    final
-    UserRepository userRepository;
-    final
-    RoleRepository roleRepository;
-    final
-    PasswordEncoder encoder;
-    final
-    AuthenticationManager authenticationManager;
-    final
-    JwtUtils jwtUtils;
+    private final JavaMailSender javaMailSender;
+    private final RestTemplate restTemplate;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder encoder;
+    private final AuthenticationManager authenticationManager;
+    private final JwtUtils jwtUtils;
 
     @Override
     public JwtResponse login(LoginRequest loginRequest) {
@@ -56,7 +48,7 @@ public class AuthServiceImpl implements IAuthService {
         if (userManagedEntity.isPresent()) {
             Users currentUser = userManagedEntity.get();
 
-//            Company company = restTemplate.getForObject("http://localhost:8092/api/v1/rentalRequest/findByMatriculate/"+currentUser.getMatriculate(), Company.class);
+            Company company = restTemplate.getForObject("http://localhost:8092/api/v1/company/findByMatriculate/"+currentUser.getMatriculate(), Company.class);
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
@@ -73,7 +65,7 @@ public class AuthServiceImpl implements IAuthService {
                     roles,
                     currentUser.isEnabled(),
                     currentUser.isAccountNonLocked(),
-                    new Company()
+                    company
             );
         }
         return null;
@@ -84,8 +76,8 @@ public class AuthServiceImpl implements IAuthService {
         List<GrantedAuthority> authorities = new ArrayList<>();
         Set<Role> roles = new HashSet<>();
         for (Role role : registerRequest.getRoles()) {
-            if (roleRepository.findByName(role.getName()).isPresent()) {
-                Optional<Role> roleManager=roleRepository.findByName(role.getName());
+            if (roleRepository.findByName(role.getName().name()).isPresent()) {
+                Optional<Role> roleManager=roleRepository.findByName(role.getName().name());
                 roleManager.ifPresent(roles::add);
             } else {
                 return null;
@@ -93,7 +85,7 @@ public class AuthServiceImpl implements IAuthService {
         }
 
         for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
+            authorities.add(new SimpleGrantedAuthority(role.getName().name()));
         }
         Users user = new Users(registerRequest.getMatriculate(), registerRequest.getEmail(),
                 "null",
@@ -102,7 +94,8 @@ public class AuthServiceImpl implements IAuthService {
                 true,
                 true,
                 true,
-                true, authorities);
+                true,
+                authorities);
 
         user.setRoles(roles);
         RegisterResponse registerResponse =new RegisterResponse();

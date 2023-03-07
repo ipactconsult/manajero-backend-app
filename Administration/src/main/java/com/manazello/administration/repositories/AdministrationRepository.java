@@ -11,4 +11,6 @@ import java.util.List;
 public interface AdministrationRepository extends MongoRepository<RentalRequest,String> {
     List<RentalRequest> findRentalRequestsByArchived(boolean archived);
     int countAllByStatus(Status status);
+    RentalRequest findRentalRequestByMatriculateFiscal(String matriculate);
+
 }

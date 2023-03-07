@@ -1,13 +1,13 @@
 package com.auth.manazello.payload.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import com.auth.manazello.models.RolesEnum;
+import lombok.*;
 
 @Setter
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class RoleRequest {
-    private String name;
+    private RolesEnum name;
 
 }

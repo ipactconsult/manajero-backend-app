@@ -7,6 +7,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
+import org.modelmapper.ModelMapper;
+
 
 @SpringBootApplication
 @OpenAPIDefinition
@@ -22,4 +24,9 @@ public class ManazelloAuthentificationApplication {
 	{
 		return new RestTemplate();
 	}
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
+
 }

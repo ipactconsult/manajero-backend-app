@@ -1,0 +1,15 @@
+package com.auth.manazello.models;
+
+public enum RolesEnum {
+    ROLE_SUPER_ADMIN,
+    ROLE_ADMIN,
+    ROLE_HR_MANAGER,
+    ROLE_CRM_MANAGER,
+    ROLE_CMKG_MANAGER,
+    ROLE_PROJECT_MANAGER,
+    ROLE_RL_MANAGER,
+    ROLE_PIM_MANAGER,
+    ROLE_FIN_MANAGER,
+    ROLE_ACC_MANAGER,
+    ROLE_EXECUTOR
+}

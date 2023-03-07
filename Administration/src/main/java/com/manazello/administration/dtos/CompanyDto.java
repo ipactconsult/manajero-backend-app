@@ -1,17 +1,15 @@
-package com.auth.manazello.models;
+package com.manazello.administration.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company {
-
+public class CompanyDto {
     private String id;
     private String email;
     private String secondEmail;
@@ -24,6 +22,4 @@ public class Company {
     private String city;
     private int postalCode;
     private String matriculate;
-    private String rentalRequestId;
-
 }

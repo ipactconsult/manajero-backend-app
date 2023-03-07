@@ -2,6 +2,7 @@ package com.auth.manazello.controller;
 
 import com.auth.manazello.payload.request.ForgetPasswordDTO;
 import com.auth.manazello.payload.response.RegisterResponse;
+import lombok.RequiredArgsConstructor;
 import net.bytebuddy.utility.RandomString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import com.auth.manazello.security.jwt.JwtUtils;
 import com.auth.manazello.security.service.IAuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -24,31 +26,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "*", maxAge = 3600)
+@RequiredArgsConstructor
 public class AuthController {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
-
-
-    UserRepository userRepository;
-
-
-    final
-    IAuthService iAuthService;
-
-    final JwtUtils jwtUtils;
-
-    public AuthController(IAuthService iAuthService, JwtUtils jwtUtils) {
-        this.iAuthService = iAuthService;
-        this.jwtUtils = jwtUtils;
-    }
-
-
+    private final UserRepository userRepository;
+    private final IAuthService iAuthService;
+    private final JwtUtils jwtUtils;
     @PostMapping("/signin")
     public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest user) {
-        System.out.println(user.getEmail());
 
         JwtResponse jwtResponse = iAuthService.login(user);
-        System.out.println(jwtResponse.getEmail());
-        System.out.println(user.getPassword());
 
         return ResponseEntity.ok(jwtResponse);
     }
@@ -57,15 +44,11 @@ public class AuthController {
     public ResponseEntity<RegisterResponse> registerUser(@RequestBody RegisterRequest signUpRequest) {
         if (iAuthService.existUserByEmail(signUpRequest.getEmail())) {
             return new ResponseEntity<>(HttpStatus.FOUND);
-
         }
         try {
-
             return new ResponseEntity<>(iAuthService.register(signUpRequest),HttpStatus.CREATED);
-
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
         }
     }
 
@@ -75,54 +58,48 @@ public class AuthController {
         return  new ResponseEntity<>( isValide,HttpStatus.OK);
     }
     @GetMapping("/generateToken/{email}")
-    public ResponseEntity<String> test( @PathVariable String  email) {
+    public ResponseEntity<String> generateTokenByEmail( @PathVariable String  email) {
        String token= jwtUtils.generateRegistreJwtToken(email);
        logger.info("******* generate token function", token);
         return  new ResponseEntity<>(token, HttpStatus.OK);
     }
 
 
-    @PostMapping(value= "/forget_password",
+    @PostMapping(value= "/forgotPassword",
             consumes = "application/json")
     @ResponseBody
-    public ResponseEntity<String> forgetPassword(@RequestBody ForgetPasswordDTO email){
+    public ResponseEntity<String> forgetPassword(@RequestBody ForgetPasswordDTO forgetPasswordDTO){
         String token = RandomString.make(150);
         try{
 
-            iAuthService.forgetPasswordToken(token,email.getEmail());
+            iAuthService.forgetPasswordToken(token,forgetPasswordDTO.getEmail());
 
-            String resetLink="http://localhost:8081/api/auth/reset_password?token=" + token;
+            String resetLink="http://localhost:4200/#/reset_pwd?token=" + token;
 
-            iAuthService.sendEmail(email.getEmail(), resetLink);
-
+            iAuthService.sendEmail(forgetPasswordDTO.getEmail(), resetLink);
 
         }catch(Exception e){
          return   new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-        @PutMapping("/reset_password")
-    public String resetPassword(@RequestParam("token")String token, @RequestBody ForgetPasswordDTO  password ){
+        @PutMapping("/resetPassword")
+    public String resetPassword(@RequestParam("token")String token, @RequestBody ForgetPasswordDTO forgetPasswordDTO ){
         Users users = iAuthService.getByResetPassword(token);
         if(users == null){
             logger.error("invalid token");
             return "Please ! Verify the token!";
         }else {
-            return  iAuthService.updatePassword(users,password.getPassword()) ;
-
-
+            return  iAuthService.updatePassword(users,forgetPasswordDTO.getPassword()) ;
         }
-
     }
 
-
-
     @GetMapping("/users")
+    @PreAuthorize("hasAuthority('ROLE_SUPER_ADMIN')")
     public List<Users>findAll()
     {
-            return userRepository.findAll();
+        return userRepository.findAll();
 
     }
 

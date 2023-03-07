@@ -1,7 +1,7 @@
 package com.manazello.administration.controllers;
 
 
-import com.manazello.administration.business.businesimpl.Iservice;
+import com.manazello.administration.business.ibusiness.Iservice;
 import com.manazello.administration.dtos.RentalRequestDto;
 import com.manazello.administration.entities.RentalRequest;
 import org.modelmapper.ModelMapper;
@@ -27,10 +27,16 @@ public class RentalRequestController {
     @PostMapping("/sendRequest")
     public ResponseEntity<RentalRequest> sendRequest(@RequestBody RentalRequestDto rentalRequestDto) {
         RentalRequest rentalRequest = modelMapper.map(rentalRequestDto, RentalRequest.class);
-        RentalRequest rentalRequestAdded = rentalRequestIserviceImpl.add(rentalRequest);
+
+        RentalRequest requestFound = rentalRequestIserviceImpl.findByMatriculate(rentalRequest.getMatriculateFiscal());
+
+        RentalRequest rentalRequestAdded = (requestFound == null)
+                ? rentalRequestIserviceImpl.add(rentalRequest)
+                : null ;
+
         return ((rentalRequestAdded != null)
                 ? new ResponseEntity<>(rentalRequestAdded, HttpStatus.CREATED)
-                : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+                : new ResponseEntity<>(HttpStatus.FOUND));
     }
 
     @GetMapping("/AllActiveRentalRequests")
@@ -73,7 +79,7 @@ public class RentalRequestController {
         RentalRequest rentalRequest = modelMapper.map(rentalRequestDto, RentalRequest.class);
         RentalRequest rentalRequestUpdated = rentalRequestIserviceImpl.update(rentalRequest);
         return (rentalRequestUpdated != null)
-                ? new ResponseEntity<>(rentalRequestUpdated, HttpStatus.CREATED)
+                ? new ResponseEntity<>(rentalRequestUpdated, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
