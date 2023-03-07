@@ -6,7 +6,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     serviceUrl:
-      defaultZone: https://eureka-manazello.herokuapp.com/eureka/
+      defaultZone: http://localhost:8761/eureka
   instance:
     prefer-ip-address: true
 

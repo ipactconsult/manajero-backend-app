@@ -56,7 +56,7 @@ public class AuthServiceImpl implements IAuthService {
         if (userManagedEntity.isPresent()) {
             Users currentUser = userManagedEntity.get();
 
-            Company company = restTemplate.getForObject("http://localhost:8092/api/v1/rentalRequest/findByMatriculate/"+currentUser.getMatriculate(), Company.class);
+//            Company company = restTemplate.getForObject("http://localhost:8092/api/v1/rentalRequest/findByMatriculate/"+currentUser.getMatriculate(), Company.class);
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
@@ -73,7 +73,7 @@ public class AuthServiceImpl implements IAuthService {
                     roles,
                     currentUser.isEnabled(),
                     currentUser.isAccountNonLocked(),
-                    company
+                    new Company()
             );
         }
         return null;

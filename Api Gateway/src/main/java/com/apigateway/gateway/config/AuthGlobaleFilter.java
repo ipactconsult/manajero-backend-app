@@ -43,7 +43,7 @@ public class AuthGlobaleFilter implements GlobalFilter {
                 return exchange.getResponse().setComplete();
             }
             boolean isValide = Boolean.TRUE.equals(restTemplate
-                    .getForObject("https://gatewayserver-api.herokuapp.com/eliyrunnihbhim/api/auth/validateToken/" + parts[1], Boolean.class));
+                    .getForObject("http://localhost:8888/authentication/api/auth/validateToken/" + parts[1], Boolean.class));
             if (!isValide) {
                 exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
                 return exchange.getResponse().setComplete();
