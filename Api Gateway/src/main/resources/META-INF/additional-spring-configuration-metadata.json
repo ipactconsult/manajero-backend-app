@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOrigins",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOrigins."
+    },
+    {
+      "name": "spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedHeaders",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedHeaders."
+    },
+    {
+      "name": "spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedMethods",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedMethods."
+    }
+  ]
+}

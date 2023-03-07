@@ -1,0 +1,46 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: https://eureka-manazello.herokuapp.com/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+management:
+  endpoint.gateway.enabled: true
+  endpoints.web.exposure.include: gateway
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - OPTIONS
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: eliyrunnihbhim
+          uri: http://localhost:8070/
+          predicates:
+            - Path=/api/auth/**
+          filters:
+        - id: risk-service
+          uri: lb://risk-service
+          predicates:
+            - Path=/api/v1/**
