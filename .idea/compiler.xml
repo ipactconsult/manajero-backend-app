@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EmployeesManagement" />
+        <module name="Finance" />
+        <module name="projectmanagement" />
+        <module name="AdministrationManagement" />
+        <module name="LitigeRecouvrement" />
+        <module name="accounting" />
+        <module name="eureka-server" />
+        <module name="projectManagement" />
+        <module name="RecruitmentHCMManagement" />
+        <module name="CommunicationMarketing" />
+        <module name="Customermanagement" />
+        <module name="Manazello" />
+        <module name="StockManagement" />
+        <module name="gateway" />
+        <module name="Customermanagement (1)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="accounting" target="1.8" />
+      <module name="AdministrationManagement" target="11" />
+      <module name="CommunicationMarketing" target="1.8" />
+      <module name="Customermanagement" target="11" />
+      <module name="Customermanagement (1)" target="11" />
+      <module name="EmployeesManagement" target="11" />
+      <module name="eureka-server" target="1.8" />
+      <module name="Finance" target="11" />
+      <module name="gateway" target="11" />
+      <module name="LitigeRecouvrement" target="11" />
+      <module name="Manazello" target="11" />
+      <module name="projectmanagement" target="11" />
+      <module name="projectManagement" target="11" />
+      <module name="RecruitmentHCMManagement" target="11" />
+      <module name="StockManagement" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AdministrationManagement" options="-parameters" />
+      <module name="CommunicationMarketing" options="-parameters" />
+      <module name="Customermanagement" options="-parameters" />
+      <module name="Customermanagement (1)" options="-parameters" />
+      <module name="EmployeesManagement" options="-parameters" />
+      <module name="Finance" options="-parameters" />
+      <module name="LitigeRecouvrement" options="-parameters" />
+      <module name="Manazello" options="-parameters" />
+      <module name="RecruitmentHCMManagement" options="-parameters" />
+      <module name="StockManagement" options="-parameters" />
+      <module name="accounting" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="projectManagement" options="-parameters" />
+      <module name="projectmanagement" options="-parameters" />
+    </option>
+  </component>
+</project>

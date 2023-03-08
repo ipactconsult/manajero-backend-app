@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Administration/AdministrationManagement.iml" filepath="$PROJECT_DIR$/Administration/AdministrationManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Marketing et Communication/CommunicationMarketing.iml" filepath="$PROJECT_DIR$/Marketing et Communication/CommunicationMarketing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CRM/Customermanagement.iml" filepath="$PROJECT_DIR$/CRM/Customermanagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mailing Management/Customermanagement (1).iml" filepath="$PROJECT_DIR$/Mailing Management/Customermanagement (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/HCM/EmployeesManagement.iml" filepath="$PROJECT_DIR$/HCM/EmployeesManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FInance/Finance.iml" filepath="$PROJECT_DIR$/FInance/Finance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Litige et Recouvrement/LitigeRecouvrement.iml" filepath="$PROJECT_DIR$/Litige et Recouvrement/LitigeRecouvrement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Authentication/Manazello.iml" filepath="$PROJECT_DIR$/Authentication/Manazello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recruitment/RecruitmentHCMManagement.iml" filepath="$PROJECT_DIR$/Recruitment/RecruitmentHCMManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PIM/StockManagement.iml" filepath="$PROJECT_DIR$/PIM/StockManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Accouting/accounting.iml" filepath="$PROJECT_DIR$/Accouting/accounting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eureka/eureka-server.iml" filepath="$PROJECT_DIR$/Eureka/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Api Gateway/gateway.iml" filepath="$PROJECT_DIR$/Api Gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/manajero-backend-app.iml" filepath="$PROJECT_DIR$/.idea/manajero-backend-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PM Charter/projectManagement.iml" filepath="$PROJECT_DIR$/PM Charter/projectManagement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project Management/projectmanagement.iml" filepath="$PROJECT_DIR$/Project Management/projectmanagement.iml" />
+    </modules>
+  </component>
+</project>

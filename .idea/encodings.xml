@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Accouting/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Administration/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Api Gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Api Gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Authentication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Authentication/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CRM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CRM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FInance/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FInance/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HCM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HCM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Litige et Recouvrement/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Mailing Management/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Mailing Management/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Marketing et Communication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Marketing et Communication/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PIM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PIM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PM Charter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PM Charter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Project Management/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Recruitment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Recruitment/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

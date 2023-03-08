@@ -44,3 +44,7 @@ spring:
           uri: lb://risk-service
           predicates:
             - Path=/api/v1/**
+        - id: administrationModule
+          uri: http://localhost:8092/
+          predicates:
+            - Path=/api/v1/rentalRequest/**

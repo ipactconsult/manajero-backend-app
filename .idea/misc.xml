@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/CRM/pom.xml" />
+        <option value="$PROJECT_DIR$/HCM/pom.xml" />
+        <option value="$PROJECT_DIR$/PIM/pom.xml" />
+        <option value="$PROJECT_DIR$/Eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/FInance/pom.xml" />
+        <option value="$PROJECT_DIR$/Accouting/pom.xml" />
+        <option value="$PROJECT_DIR$/PM Charter/pom.xml" />
+        <option value="$PROJECT_DIR$/Api Gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Recruitment/pom.xml" />
+        <option value="$PROJECT_DIR$/Administration/pom.xml" />
+        <option value="$PROJECT_DIR$/Authentication/pom.xml" />
+        <option value="$PROJECT_DIR$/Mailing Management/pom.xml" />
+        <option value="$PROJECT_DIR$/Project Management/pom.xml" />
+        <option value="$PROJECT_DIR$/Litige et Recouvrement/pom.xml" />
+        <option value="$PROJECT_DIR$/Marketing et Communication/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

@@ -50,8 +50,6 @@ public class AuthGlobaleFilter implements GlobalFilter {
 
             }
         }
-
-
         return chain.filter(exchange);
     }
 }
