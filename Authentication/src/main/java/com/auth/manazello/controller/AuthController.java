@@ -74,7 +74,7 @@ public class AuthController {
 
             iAuthService.forgetPasswordToken(token,forgetPasswordDTO.getEmail());
 
-            String resetLink="http://localhost:4200/#/reset_pwd?token=" + token;
+            String resetLink="http://localhost:4200/#/reset_pwd/" + token;
 
             iAuthService.sendEmail(forgetPasswordDTO.getEmail(), resetLink);
 
